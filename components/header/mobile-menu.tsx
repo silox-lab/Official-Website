@@ -36,7 +36,7 @@ export default function MobileMenu({ isTransparent = false }: { isTransparent?: 
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline" size="icon" className="xl:hidden">
+        <Button variant={menuVariant} size="icon" className="xl:hidden">
           <Menu className="h-6 w-6" />
           <span className="sr-only">{t("buttons.toggleMenu")}</span>
         </Button>
