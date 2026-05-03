@@ -115,7 +115,8 @@
       "packages": "Packages",
       "supportUs": "Support Us",
       "contributors": "Contributors",
-      "playground": "Playground"
+      "playground": "Playground",
+      "philosophy": "Philosophy"
     },
     "buttons": {
       "getStarted": "Get Started",
@@ -317,7 +318,10 @@
   },
   "Packages": {
     "title": "Packages",
-    "headerTitle": { "normal": "Cyrus", "colored": "Packages" },
+    "headerTitle": {
+      "normal": "Cyrus",
+      "colored": "Packages"
+    },
     "subtitle": "Explore and install libraries built by the Cyrus community.",
     "searchPlaceholder": "Search packages (e.g. 'http', 'json')...",
     "stats": {
@@ -331,5 +335,34 @@
     "install": "Install",
     "documentation": "Documentation",
     "dependencies": "Dependencies"
+  },
+  "Philosophy": {
+    "hero": {
+      "title": "Why this project is called Cyrus",
+      "subtitle": "A philosophy, not just a language.",
+      "description": "This project is not named “Cyrus” for aesthetic or historical decoration. It is named after a principle — a rare moment in human history where power was not used to dominate, but to restore dignity. That principle is the foundation of everything built here."
+    },
+    "cards": {
+      "c1": {
+        "title": "Power, Rewritten",
+        "body": "In most of human history, power has meant domination — over territory, belief, and identity. It has meant erasure, replacement, and control.\n\nCyrus represents an exception to that pattern. When he entered Babylon, he did not destroy what existed. He did not erase culture or impose uniformity. Instead, he restored what had been broken.\n\nThis project inherits that idea: power is only meaningful when it does not destroy the humanity of those it touches."
+      },
+      "c2": {
+        "title": "Human Dignity Before Systems",
+        "body": "Long before modern terminology like “human rights” existed, Cyrus implemented their essence through governance.\n\nHe allowed displaced people to return to their homeland. He respected belief systems instead of replacing them. He restored cultural identity instead of suppressing it.\n\nThese actions were not symbolic. They were structural decisions about how authority interacts with human existence."
+      },
+      "c3": {
+        "title": "Why a Programming Language",
+        "body": "Software today is not neutral. It shapes behavior, defines constraints, and silently governs how humans think and build.\n\nThat makes it a form of power — often invisible, often unaccountable.\n\nThis project chooses the name Cyrus because it rejects the idea of invisible control. Instead, it aims for clarity, transparency, and respect for the developer’s intent. A system should not manipulate its users — it should empower them."
+      },
+      "c4": {
+        "title": "The Core Principle",
+        "body": "Cyrus is not a reference to history. It is a constraint on design.\n\nIt defines a boundary: no system is acceptable if it reduces human understanding, increases unnecessary complexity, or limits freedom without justification.\n\nEvery feature, every abstraction, every decision must pass a single question: does this increase clarity and human control — or reduce it?"
+      }
+    },
+    "footer": {
+      "line1": "Built with care, inspired by history, and driven by respect for human dignity.",
+      "line2": "Thank you for being part of this journey ❤️."
+    }
   }
 }

@@ -20,7 +20,7 @@ interface SearchResult {
   category: string;
 }
 
-export default function SearchBar() {
+export default function SearchBar({ isTransparent = false }: { isTransparent?: boolean }) {
   const t = useTranslations("Header");
   const locale = useLocale() as "en" | "fa";
 
@@ -28,6 +28,8 @@ export default function SearchBar() {
   const [results, setResults] = useState<SearchResult[]>([]);
   const [index, setIndex] = useState<SearchResult[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+
+  const triggerVariant = isTransparent ? "glass" : "outline";
 
   useEffect(() => {
     fetch("/search-index.json")
@@ -72,7 +74,7 @@ export default function SearchBar() {
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
         <Button
-          variant="outline"
+          variant={triggerVariant}
           size="icon"
           aria-label={t("search.ariaLabel")}
         >

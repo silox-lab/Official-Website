@@ -14,10 +14,12 @@ import { DEFAULT_DOCS_HREF } from "@/app/[locale]/docs/_page";
 import { useTranslations } from "next-intl";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 
-export default function MobileMenu() {
+export default function MobileMenu({ isTransparent = false }: { isTransparent?: boolean }) {
   const t = useTranslations("Header");
 
   const [mounted, setMounted] = useState(false);
+
+  const menuVariant = isTransparent ? "glass" : "outline";
 
   useEffect(() => {
     setMounted(true);
@@ -25,7 +27,7 @@ export default function MobileMenu() {
 
   if (!mounted) {
     return (
-      <Button variant="outline" size="icon" className="xl:hidden">
+      <Button variant={menuVariant} size="icon" className="xl:hidden">
         <Menu className="h-6 w-6" />
       </Button>
     );

@@ -22,10 +22,14 @@ export default function CodeBlock({
   disableBorder = false,
 }: CodeBlockProps) {
   const codeRef = useRef<HTMLElement | null>(null);
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme(); // Use resolvedTheme for more accuracy
   const [isCopying, setIsCopying] = useState(false);
 
+  // FIX: Track if the component has mounted to prevent hydration mismatch
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
     hljs.highlightAll();
   }, []);
 
@@ -47,6 +51,12 @@ export default function CodeBlock({
     }
   };
 
+  // Determine the class based on mounting status
+  // We default to 'hljs-dark' so the server and first client render match.
+  const themeClass = mounted
+    ? (resolvedTheme === "light" ? "hljs-light" : "hljs-dark")
+    : "hljs-dark";
+
   return (
     <div className="my-6 overflow-x-auto relative group code-block">
       <div className="absolute right-2 top-2 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -59,11 +69,15 @@ export default function CodeBlock({
           {isCopying ? "Copying..." : "Copy"}
         </Button>
       </div>
-      <div className={`${theme === "light" ? "hljs-light" : "hljs-dark"}`}>
+
+      {/* 
+         FIX: Adding suppressHydrationWarning here as a secondary safety measure,
+         though the 'mounted' logic above is the primary fix.
+      */}
+      <div className={themeClass} suppressHydrationWarning>
         <pre
-          className={`mt-0! mb-0! rounded-lg text-left ${
-            disableBorder ? "" : "border"
-          }`}
+          className={`mt-0! mb-0! rounded-lg text-left ${disableBorder ? "" : "border"
+            }`}
           dir="ltr"
         >
           <code

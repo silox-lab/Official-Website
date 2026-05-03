@@ -7,9 +7,8 @@ import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import type React from "react";
 import "./globals.css";
-import { cookies } from "next/headers";
+import AppLoadingWrapper from "@/components/loading-bar";
 // import SplashScreen from "@/components/splash-bar";
-// import AppLoadingWrapper from "@/components/loading-bar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -48,7 +47,7 @@ export default async function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <NextIntlClientProvider locale={locale} messages={messages}>
             {/* <SplashScreen /> */}
-            {/* <AppLoadingWrapper /> */}
+            <AppLoadingWrapper />
             <Toaster />
             {children}
           </NextIntlClientProvider>

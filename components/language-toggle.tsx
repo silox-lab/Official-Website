@@ -6,12 +6,12 @@ import { useLocale } from "next-intl";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 
-export function LanguageToggle() {
+export function LanguageToggle({ isTransparent = false }: { isTransparent?: boolean }) {
   const [mounted, setMounted] = useState(false);
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-
+  
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -20,6 +20,8 @@ export function LanguageToggle() {
     const newLocale = locale === "en" ? "fa" : "en";
     router.replace(pathname, { locale: newLocale });
   };
+
+  const toggleVariant = isTransparent ? "glass" : "outline";
 
   if (!mounted) {
     return (
@@ -31,7 +33,7 @@ export function LanguageToggle() {
 
   return (
     <Button
-      variant="outline"
+      variant={toggleVariant}
       size="icon"
       onClick={toggleLanguage}
       title={locale === "en" ? "تغییر به فارسی" : "Switch to English"}
