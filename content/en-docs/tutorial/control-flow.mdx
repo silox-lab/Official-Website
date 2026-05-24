@@ -81,7 +81,7 @@ for (var attempts = 0;) {
         break;
     }
 
-    tryConnect();
+    try_connect();
     attempts++;
 }
 ```
@@ -96,7 +96,7 @@ With no condition provided, the loop is infinite unless exited using break or re
   An infinite loop can also be written as:
   ```cyrus
     while (true) {
-        handleEvent();
+        handle_event();
     }
   ```
   Both forms are semantically equivalent. However, using `for { ... }` is preferred for infinite loops to keep the codebase stylistically consistent and to avoid mixing multiple looping styles for the same concept.
@@ -118,7 +118,7 @@ This form has no initializer, no condition, and no update. It must be terminated
 A while loop repeatedly executes a block of code as long as a condition evaluates to true. The condition is checked before each iteration. If the condition is false at the start, the loop body never runs.
 
 ```cyrus
-while (isRunning) {
+while (is_running) {
     tick();
 }
 ```
@@ -130,7 +130,7 @@ while (true) {
     printf("attempt %d\n", attempts);
     attempts++;
 
-    if (attempts >= maxRetries) {
+    if (attempts >= max_retries) {
         break;
     }
 }
@@ -165,7 +165,7 @@ switch (expression) {
 ```
 
 Each case is introduced using `=>` and executes its associated block when the pattern matches.  
-Execution does not fall through; exactly one matching branch is executed.
+Execution does not **fall through**; exactly one matching branch is executed.
 
 <br />
 
@@ -260,21 +260,52 @@ Here, the bound variable (number, text) is available only within its correspondi
 
 <br />
 
+### Matching Multiple Enum Variants
+
+When an enum variant has no payload, it can be combined with other non-payload variants using the `|` operator inside a case.
+
+This allows grouping several variants under one branch.
+
+```cyrus
+enum Color {
+    Red,
+    Green,
+    Custom(uint, uint, uint)
+}
+
+pub fn main() {
+    const color = Color.Green;
+
+    switch (color) {
+        case .Red | .Custom => {
+            printf("primary\n");
+        }
+        case .Green => {
+            printf("green\n");
+        }
+    }
+}
+```
+
+Only variants without payloads may be grouped via |.
+Variants with payloads must be matched individually so their fields can be destructured.
+Grouped cases behave as a single branch; no pattern binding is allowed.
+
+<br />
+
 ### Switching On Non-enum Values
 
 Switch can also be used with non-enum expressions such as integers, strings, or other comparable values.
 
 ```cyrus
-pub fn main() {
-    const text = "Cyrus!";
+const text = "Cyrus!";
 
-    switch (text) {
-        case "Cyrus!" => {
-            printf("Cyrus The Great\n");
-        }
-        default => {
-            printf("unknown\n");
-        }
+switch (text) {
+    case "Cyrus!" => {
+        printf("Cyrus The Great\n");
+    }
+    default => {
+        printf("unknown\n");
     }
 }
 ```
@@ -302,7 +333,7 @@ goto label_name; // jumps to the labeled block
 }
 ```
 
-Labels must be defined within the same function.    
+Labels must be defined within the same function.
 
 ```cyrus
 import std::libc{printf, exit};

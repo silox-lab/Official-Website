@@ -414,7 +414,7 @@ Associativity determines how operators of the same precedence are grouped: left-
 
 ## Unary Operators
 
-Unary operators operate on a single operand and modify its value by **1**.  
+Unary operators operate on a single operand and modify its value by **1**.
 
 **Prefix** (`++i`, `--i`) updates the variable **before** it's used in an expression.  
 **Postfix** (`i++`, `i--`) updates the variable **after** it's used in an expression.
@@ -464,8 +464,10 @@ Unary operators operate on a single operand and modify its value by **1**.
   </TableBody>
 </Table>
 
-- Works only on mutable lvalues; using on constants or rvalues should be a compile error.
-- Avoid relying on multiple increments of the same variable within a single expression if your language disallows/diagnoses unspecified order of evaluation.
+<br />
+
+- Works only on mutable lvalues; using on constants or rvalues is considered a compile error.
+- Avoid relying on multiple increments of the same variable within a single expression.
 
 <br />
 

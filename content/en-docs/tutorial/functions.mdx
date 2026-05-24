@@ -19,9 +19,9 @@ fn sum(x: int, y: int) int {
 }
 ```
 
-Parameters are explicitly typed.  
-The return type appears after the parameter list.  
-return is required for non-void functions.
+- Parameters are explicitly typed.
+- Return type appears after the parameter list.
+- Return is required for non-void functions.
 
 <br />
 
@@ -123,7 +123,7 @@ Controls whether the compiler emits a function prologue and epilogue.
 naked fn interrupt_handler() void { ... }
 ```
 
-Naked emits no stack setup or teardown. 
+Naked emits no stack setup or teardown.
 This is intended for low-level code such as interrupt handlers or hand-written assembly bridges.
 
 ### Export Modifiers
@@ -173,8 +173,8 @@ Only one calling convention may be specified per function.
 
 ### Optional Function Flags
 
-Optional flags provide additional semantic or optimization hints.   
-Multiple optional flags may be applied to the same function.    
+Optional flags provide additional semantic or optimization hints.  
+Multiple optional flags may be applied to the same function.
 
 ```cyrus
 noreturn cold fn fatal_error(msg: char*) void { ... }
@@ -202,8 +202,8 @@ Functions may be placed into specific binary sections.
 section(".init") fn early_init() void { ... }
 ```
 
-Multiple placement attributes may be specified when supported by the target.    
-This is typically used for kernel code, embedded systems, or fine-grained linker control.   
+Multiple placement attributes may be specified when supported by the target.  
+This is typically used for kernel code, embedded systems, or fine-grained linker control.
 
 <br />
 
@@ -231,7 +231,7 @@ To access and iterate over the variable arguments from within your function, see
 
 <br />
 
-## Function Name 
+## Function Name
 
 Cyrus allows you to specify a **different ABI-level (linker) name** for a function than its Cyrus name. This is done using the `as` keyword after the declaration.
 
