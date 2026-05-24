@@ -1,3 +1,4 @@
+import AppLoadingWrapper from "@/components/loading-bar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { routing } from "@/i18n/routing";
@@ -7,7 +8,8 @@ import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import type React from "react";
 import "./globals.css";
-import AppLoadingWrapper from "@/components/loading-bar";
+
+// DISABLED:
 // import SplashScreen from "@/components/splash-bar";
 
 const inter = Inter({ subsets: ["latin"] });
