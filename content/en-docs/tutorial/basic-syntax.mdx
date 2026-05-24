@@ -179,42 +179,59 @@ Type suffixes can be used to explicitly control the size and signedness of an in
 
 ## Arrays
 
-Arrays in Cyrus are fixed-size sequences of elements. Their size must be known at compile time, similar to C arrays.
+Arrays are fixed-size, stack-allocated sequences. Size must be known at compile time.
 
-Example:
+### Explicit and Inferred Types
+You can define types explicitly or let the compiler infer them:
 
 ```cyrus
+// Explicit
 var a = int[3]{1, 2, 3};
-var b = const float64[4]{3.14, 2.71, 1.618, 0.577};
+
+// Inferred
+const untyped = {1, 2, 3};
 ```
 
-- The array size cannot change at runtime.
-- Access elements using indexing, starting from 0.
-
+### Multi-dimensional Arrays
 ```cyrus
-printf("%d\n", a[0]);
+const matrix = int[2][3] {
+    int[3] {1, 2, 3},
+    int[3] {1, 2, 3},
+};
 ```
-
-<br />
 
 ## Pointers
 
-Pointers in Cyrus behave like C pointers. They store the memory address of another variable.
-
-```cyrus
-var ptr: Type* = &variable;
-```
-
-- Type\* - pointer to a value of Type
-- &variable - takes the address of a variable
-
-Example:
+Cyrus pointers function similarly to C.
 
 ```cyrus
 var a: int = 10;
 var b: int* = &a;
-
-printf("%d\n", *b); // prints 10
 ```
 
-Pointer arithmetic behaves like C (e.g., incrementing a pointer moves it by sizeof(T) bytes).
+### GEP and Decay
+
+Cyrus simplifies pointer access:
+
+<br />
+
+1. **GEP**: You can use indexing on pointers directly (GetElementPtr semantics).
+   ```cyrus
+   var ptr: int* = malloc(8);
+   ptr[0] = 10;
+   ptr[1] = 20;
+   ```
+
+2. **Decay**: Arrays automatically decay to pointers when assigned to a pointer type.
+   ```cyrus
+   const nums = int[3]{1, 2, 3};
+   const ptr: int* = nums; // Equivalent to &nums[0]
+   ```
+
+3. **Pointer to Array**:
+   ```cyrus
+   const nums = int[3]{1, 2, 3};
+   var ptr: int[3]* = &nums;
+
+   (*ptr)[0] = 10;
+   ```
