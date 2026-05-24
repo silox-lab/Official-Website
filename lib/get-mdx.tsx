@@ -25,6 +25,7 @@ import UnderDevelopmentAlert from "@/components/under-development-alert";
 import { Link } from "@/i18n/navigation";
 import Image, { ImageProps } from "next/image";
 import { getTranslations } from "next-intl/server";
+import { RoadmapTimeline } from '../components/roadmap-timeline';
 
 export const getTitleId = (text: string) => encodeURIComponent(text?.replace(/\s+/g, "-"));
 
@@ -172,6 +173,7 @@ export async function getMDXComponents(
     TableRow,
     TableCell,
     TableCaption,
+    RoadmapTimeline,
     ...components,
   };
 }

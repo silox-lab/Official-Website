@@ -14,6 +14,7 @@ export default async function MDXContent({
   const components = await getMDXComponents();
   const headings = parseHeadings(source);
   const t = await getTranslations("DocsContent.onThisPage");
+  
   return (
     <div className="grid grid-cols-12 gap-8">
       <div className="xl:col-span-9 2xl:col-span-10 lg:col-span-8 col-span-12">
