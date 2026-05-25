@@ -235,3 +235,27 @@ Cyrus simplifies pointer access:
 
    (*ptr)[0] = 10;
    ```
+
+
+### Pointer Constness and Mutability
+
+Cyrus distinguishes between the mutability of the pointer itself and the mutability of the data it points to.
+If you take a reference to a const value, the resulting pointer is automatically a pointer to a constant (e.g., const int*), preventing mutation of the underlying value through that pointer.
+
+```cyrus
+pub fn main() {
+   const x = 10;
+   
+   // immut_ref is a mutable pointer to a constant integer (const int*)
+   var immut_ref = &x;
+
+   // ERROR: cannot modify a value through a 'const int*'
+   *immut_ref = 20;
+   
+   printf("%d\n", *immut_ref);
+   
+   // However, the pointer itself can be reassigned:
+   const y = 30;
+   immut_ref = &y; 
+}
+```

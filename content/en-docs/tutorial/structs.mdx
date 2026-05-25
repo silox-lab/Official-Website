@@ -236,15 +236,15 @@ Using `&const self` ensures that the method cannot modify any fields of the stru
 struct Wallet {
     pub balance: float64;
 
-    pub fn calculate_projection(&const self, const adjustment: float64) float64 {
+    pub fn calculate_projection(const self, const adjustment: float64) float64 {
         self->balance += adjustment; // ERROR!
         adjustment = 0.0;            // ERROR!
 
-        return self->balance + adjustment;
+        return self.balance + adjustment;
     }
 
-    pub fn deposit(&self, amount: float64) {
-        self->balance += amount; // ALLOWED
+    pub fn deposit(self, amount: float64) {
+        self.balance += amount; // ALLOWED
     }
 }
 
