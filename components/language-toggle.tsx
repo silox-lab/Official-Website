@@ -6,12 +6,16 @@ import { useLocale } from "next-intl";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 
-export function LanguageToggle({ isTransparent = false }: { isTransparent?: boolean }) {
+export function LanguageToggle({
+  isTransparent = false,
+}: {
+  isTransparent?: boolean;
+}) {
   const [mounted, setMounted] = useState(false);
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  
+
   useEffect(() => {
     setMounted(true);
   }, []);

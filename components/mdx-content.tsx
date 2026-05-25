@@ -3,6 +3,7 @@ import { parseHeadings } from "@/lib/heading-parser";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { HeadingTree } from "./heading-tree";
 import { getTranslations } from "next-intl/server";
+import { cn } from "@/lib/utils";
 
 export default async function MDXContent({
   source,
@@ -14,10 +15,17 @@ export default async function MDXContent({
   const components = await getMDXComponents();
   const headings = parseHeadings(source);
   const t = await getTranslations("DocsContent.onThisPage");
-  
+
+  const isRoadmapRoute = path.includes("roadmap");
   return (
     <div className="grid grid-cols-12 gap-8">
-      <div className="xl:col-span-9 2xl:col-span-10 lg:col-span-8 col-span-12">
+      <div
+        className={cn(
+          isRoadmapRoute
+            ? "col-span-12"
+            : "xl:col-span-9 2xl:col-span-10 lg:col-span-8 col-span-12",
+        )}
+      >
         <MDXRemote source={source} components={components} />
 
         <div className="mt-8 flex justify-end w-full">
@@ -31,8 +39,13 @@ export default async function MDXContent({
           </a>
         </div>
       </div>
-      <div className=" xl:col-span-3 2xl:col-span-2 lg:col-span-4 col-span-full max-lg:hidden relative">
-        <div className="sticky top-24">
+      <div
+        className={cn(
+          "xl:col-span-3 2xl:col-span-2 lg:col-span-4 col-span-full max-lg:hidden relative",
+          isRoadmapRoute && "hidden",
+        )}
+      >
+        <div className="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto pr-2 custom-scrollbar">
           <p className="text-lg font-semibold mb-3 dark:text-gray-300 text-gray-500">
             {t("title")}
           </p>
