@@ -7,8 +7,6 @@ weight: 2
 
 Cyrus features a **strong and expressive type system**. The compiler performs **implicit type conversions** when it is safe, and requires **explicit casts** when conversions could be unsafe or lossy.
 
-
-
 ## Safe Implicit Casting
 
 If a type can be safely converted to another type without losing information, Cyrus will perform the conversion automatically.
@@ -21,8 +19,6 @@ var b: int64 = a; // implicit cast from int32 to int64
 - `int32` (32-bit signed integer) can always fit into `int64` (64-bit signed integer).
 - The compiler handles this **implicitly**, so no special syntax is required.
 
-
-
 ## Unsafe / Explicit Casting
 
 If a conversion **could be unsafe**, the compiler requires an **explicit cast** using the `cast` keyword.
@@ -31,8 +27,6 @@ If a conversion **could be unsafe**, the compiler requires an **explicit cast** 
 var u: uint32 = 10;
 var i: int64 = @cast(int64, u); // Explicit unsafe cast from uint32 to int64.
 ```
-
-
 
 # Basic Types
 
@@ -147,8 +141,6 @@ Cyrus provides a set of built-in types for numbers, characters, booleans, and sp
   </TableBody>
 </Table>
 
-
-
 ### Floating-Point Types
 
 <Table>
@@ -183,8 +175,6 @@ Cyrus provides a set of built-in types for numbers, characters, booleans, and sp
   </TableBody>
 </Table>
 
-
-
 ### Character and Boolean Types
 
 <Table>
@@ -199,7 +189,8 @@ Cyrus provides a set of built-in types for numbers, characters, booleans, and sp
     <TableRow>
       <TableCell className="font-medium">char</TableCell>
       <TableCell>
-        A single character unit (one code unit; multi-byte Unicode not allowed in `'...'`).
+        A single character unit (one code unit; multi-byte Unicode not allowed
+        in `'...'`).
       </TableCell>
       <TableCell className="text-right">
         Unsigned; Represents ASCII/byte chars only
@@ -216,8 +207,6 @@ Cyrus provides a set of built-in types for numbers, characters, booleans, and sp
     </TableRow>
   </TableBody>
 </Table>
-
-
 
 ### Special Types
 

@@ -7,8 +7,6 @@ weight: 11
 
 Cyrus features a **powerful module system** with **incremental compilation** and a **strong module cache**. Modules allow code organization, reusability, and proper scoping.
 
-
-
 ## Module Files
 
 In Cyrus, **files are considered modules**.
@@ -28,8 +26,6 @@ pub fn greet(name: str) {
 }
 ```
 
-
-
 ## Importing Modules
 
 To use a module in another file, you import it.
@@ -47,8 +43,6 @@ Notes:
 - The entry file (the one you compile as main) cannot import other modules; it is considered the root.
 - Only publicly exported symbols (declared with pub) are visible outside their module.
 
-
-
 ## Importing Single Symbols
 
 You can import only a single symbol instead of the whole module:
@@ -60,8 +54,6 @@ pub fn main() {
   greet("Alice"); // no need for module path prefix
 }
 ```
-
-
 
 ## Importing Multiple Modules
 
@@ -79,11 +71,9 @@ pub fn main() {
 }
 ```
 
-
-
 ## Renaming Imported Symbols
 
-Renaming avoids conflicts or makes names clearer.   
+Renaming avoids conflicts or makes names clearer.
 
 - Renaming a symbol
 

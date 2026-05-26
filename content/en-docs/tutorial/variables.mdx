@@ -43,8 +43,6 @@ extern errno: int; // private external symbol
 pub extern stdin: void*; // public external symbol
 ```
 
-
-
 ## Local Variables
 
 Local variables are declared within function bodies using `var` or `const`. Their scope is restricted to the block in which they are defined.
@@ -62,12 +60,10 @@ If you need to ensure a specific type, you can annotate the declaration:
 ```cyrus
 pub fn main() {
     const epsilon: float64 = 0.001;
-    
+
     var retries: int;
 }
 ```
-
-
 
 ## Zero Initialization
 
@@ -95,7 +91,7 @@ Declaring a variable without a type and without an initializer is not allowed, e
 ```cyrus
 var x; // ERROR!
 
-x = 10; 
+x = 10;
 ```
 
 You must either write:
@@ -104,7 +100,7 @@ You must either write:
 var x = 10; // type inferred as int
 ```
 
-Or: 
+Or:
 
 ```cyrus
 var x: int; // explicit type, zero-initialized to 0

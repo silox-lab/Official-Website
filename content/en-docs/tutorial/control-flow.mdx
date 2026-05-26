@@ -29,8 +29,6 @@ if (score >= 90) {
 }
 ```
 
-
-
 ## Looping Constructs
 
 A for loop allows repeating a block of code multiple times. It usually consists of three optional parts inside the loop header:
@@ -45,8 +43,6 @@ for (initializer; condition; increment) {
 }
 ```
 
-
-
 ### Classic Counter Loop
 
 ```cyrus
@@ -56,8 +52,6 @@ for (var i = 0; i < 10; i++) {
 ```
 
 Runs with i taking values from `0` to `9`.
-
-
 
 ### Manual Increment Loop
 
@@ -70,8 +64,6 @@ for (var i = 0; i < 10;) {
 ```
 
 Here, the increment part is omitted. The loop continues until the condition becomes false, but you control when i is updated.
-
-
 
 ### Conditionless Loop with Initializer
 
@@ -87,8 +79,6 @@ for (var attempts = 0;) {
 ```
 
 With no condition provided, the loop is infinite unless exited using break or return.
-
-
 
 ### Pure Infinite Loop
 
@@ -110,8 +100,6 @@ for {
 ```
 
 This form has no initializer, no condition, and no update. It must be terminated explicitly.
-
-
 
 ### While Statement
 
@@ -136,8 +124,6 @@ while (true) {
 }
 ```
 
-
-
 ## Switch Statement
 
 <InfoAlert>
@@ -148,8 +134,6 @@ while (true) {
 The switch statement provides structured control flow based on the value of an expression. It supports enum variants with destructuring, value-based matching, and an optional default branch.
 
 The general form is:
-
-
 
 ### Basic Form
 
@@ -166,8 +150,6 @@ switch (expression) {
 
 Each case is introduced using `=>` and executes its associated block when the pattern matches.  
 Execution does not **fall through**; exactly one matching branch is executed.
-
-
 
 ### Switching on Enums
 
@@ -200,8 +182,6 @@ pub fn main() {
 
 The switch is exhaustive: all possible variants of Color are handled.
 
-
-
 ### Switch Enum Without Payloads
 
 ```cyrus
@@ -230,8 +210,6 @@ pub fn main() {
 
 Each case matches a concrete enum variant. Since all variants are covered, no default branch is required.
 
-
-
 ### Destructuring Tagged Values
 
 Enums are commonly used as tagged unions. The switch statement allows safe extraction of the stored value based on the active variant.
@@ -257,8 +235,6 @@ pub fn main() {
 ```
 
 Here, the bound variable (number, text) is available only within its corresponding case block.
-
-
 
 ### Matching Multiple Enum Variants
 
@@ -291,8 +267,6 @@ Only variants without payloads may be grouped via |.
 Variants with payloads must be matched individually so their fields can be destructured.
 Grouped cases behave as a single branch; no pattern binding is allowed.
 
-
-
 ### Switching On Non-enum Values
 
 Switch can also be used with non-enum expressions such as integers, strings, or other comparable values.
@@ -315,8 +289,6 @@ In this form:
 - Each case compares the switch expression against a concrete value
 - Default is executed when no case matches
 - Matching is value-based, not pattern-based
-
-
 
 # Jump Blocks
 

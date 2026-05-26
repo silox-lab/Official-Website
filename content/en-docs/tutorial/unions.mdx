@@ -9,8 +9,6 @@ A Union in Cyrus is a low-level composite type where all member fields share the
 
 The size of a union is determined by the size of its largest member. Writing to any field overlaps and overwrites the memory occupied by all other fields, effectively providing a mechanism for memory aliasing.
 
-
-
 <WarningAlert title="Unions Are Not Memory-Safe">
   Unions in Cyrus are not memory-safe. Reading a field that was not most
   recently written is undefined behavior, just like in C. Use unions only when
@@ -21,8 +19,6 @@ The size of a union is determined by the size of its largest member. Writing to 
   If you want a memory-safe way to store different types of values, use an enum,
   which enforces at compile time which variant is active.
 </InfoAlert>
-
-
 
 ## Defining a Union
 
@@ -39,8 +35,6 @@ fn main() {
 }
 ```
 
-
-
 ## Using a Union
 
 You can create a union instance and assign fields directly:
@@ -56,8 +50,6 @@ fn main() {
 
 After `raw.b = 3.14`, the value of `raw.a` is no longer valid.
 
-
-
 ## Union Initialization
 
 Unions can be initialized using a Union Initializer, specifying which field to set at creation:
@@ -70,8 +62,6 @@ Rules:
 
 - Only one field should be initialized.
 - The union's memory will be set according to that field.
-
-
 
 ## Practical Use Cases
 
@@ -104,8 +94,6 @@ Output (on little-endian systems):
 78 56 34 12
 ```
 
-
-
 ## Unnamed Union Initialization
 
 Similar to structs, you can use unnamed unions for inline data layout or initialization of named union types. This is particularly useful for temporary low-level buffers.
@@ -124,8 +112,6 @@ pub fn main() {
 ```
 
 Only one field can be initialized in a union value. Providing multiple fields will result in a compile-time error.
-
-
 
 ## Union Pointer Aliasing
 

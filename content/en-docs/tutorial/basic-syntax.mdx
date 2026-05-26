@@ -9,8 +9,6 @@ This article is an introduction to the Cyrus Programming Language. It assumes yo
 
 If you haven't installed Cyrus yet, start with the [Getting Started](/en/docs/getting-started/install-compiler-binary) guide before continuing.
 
-
-
 ## Comments
 
 Comments are pieces of text ignored by the compiler.
@@ -34,8 +32,6 @@ var msg: char* = "Hello, Cyrus!"; // You can also place it after code
   Multi-line comments can also be nested!
 */
 ```
-
-
 
 ## Const string and Character Literals
 
@@ -79,8 +75,6 @@ Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
 when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
 ```
 
-
-
 ### Unicode and Emojis
 
 Cyrus supports Unicode characters directly in string and character literals. You can type emojis, accented letters, or any other Unicode characters inside quotes:
@@ -93,8 +87,6 @@ var greek_alpha: char* = "\u03B1";          // valid "α"
 var emoji_char: char = '😇';                // NOT VALID
 var multibyte_char: char = '\u263A';        // NOT VALID
 ```
-
-
 
 ## Integer Constants
 
@@ -124,8 +116,6 @@ Numeric literals may include underscores **\_** between digits for readability; 
 var million = 1_000_000;
 var hex_val = 0xDE_AD_BE_EF;
 ```
-
-
 
 ## Literal Suffixes
 
@@ -167,21 +157,18 @@ var a = 1234int64;
 var b = 3.14float64;
 ```
 
-
-
 ### Default Type of Literals
 
 If you don't specify a type suffix, Cyrus assigns `int` as the default type for integer literals, and `float64` as the default type for floating-point literals.
 
 Type suffixes can be used to explicitly control the size and signedness of an integer literal, or to select a different floating-point precision.
 
-
-
 ## Arrays
 
 Arrays are fixed-size, stack-allocated sequences. Size must be known at compile time.
 
 ### Explicit and Inferred Types
+
 You can define types explicitly or let the compiler infer them:
 
 ```cyrus
@@ -193,6 +180,7 @@ const untyped = {1, 2, 3};
 ```
 
 ### Multi-dimensional Arrays
+
 ```cyrus
 const matrix = int[2][3] {
     int[3] {1, 2, 3},
@@ -213,9 +201,8 @@ var b: int* = &a;
 
 Cyrus simplifies pointer access:
 
-
-
 1. **GEP**: You can use indexing on pointers directly (GetElementPtr semantics).
+
    ```cyrus
    var ptr: int* = malloc(8);
    ptr[0] = 10;
@@ -223,12 +210,14 @@ Cyrus simplifies pointer access:
    ```
 
 2. **Decay**: Arrays automatically decay to pointers when assigned to a pointer type.
+
    ```cyrus
    const nums = int[3]{1, 2, 3};
    const ptr: int* = nums; // Equivalent to &nums[0]
    ```
 
 3. **Pointer to Array**:
+
    ```cyrus
    const nums = int[3]{1, 2, 3};
    var ptr: int[3]* = &nums;
@@ -236,26 +225,25 @@ Cyrus simplifies pointer access:
    (*ptr)[0] = 10;
    ```
 
-
 ### Pointer Constness and Mutability
 
 Cyrus distinguishes between the mutability of the pointer itself and the mutability of the data it points to.
-If you take a reference to a const value, the resulting pointer is automatically a pointer to a constant (e.g., const int*), preventing mutation of the underlying value through that pointer.
+If you take a reference to a const value, the resulting pointer is automatically a pointer to a constant (e.g., const int\*), preventing mutation of the underlying value through that pointer.
 
 ```cyrus
 pub fn main() {
    const x = 10;
-   
+
    // immut_ref is a mutable pointer to a constant integer (const int*)
    var immut_ref = &x;
 
    // ERROR: cannot modify a value through a 'const int*'
    *immut_ref = 20;
-   
+
    printf("%d\n", *immut_ref);
-   
+
    // However, the pointer itself can be reassigned:
    const y = 30;
-   immut_ref = &y; 
+   immut_ref = &y;
 }
 ```
