@@ -11,8 +11,6 @@ Cyrus exists to reverse that relationship.
 
 It is designed so that once you understand its structure, your focus shifts entirely to logic, not syntax, not hidden rules, and not language-specific mental overhead.
 
-<br />
-
 ## Philosophy
 
 Cyrus is built on a strict principle:
@@ -24,8 +22,6 @@ It does not attempt to introduce new paradigms, invent novel abstractions, or re
 If you are familiar with C-like semantics, Cyrus should feel natural within days—not weeks.
 
 Cyrus is not a replacement for C, nor does it attempt to be fully compatible with it. It is a modern reinterpretation of familiar ideas, designed for clarity and control.
-
-<br />
 
 ## Syntax-First Simplicity
 
@@ -40,7 +36,7 @@ you should be able to read Cyrus code and understand it immediately, without nee
 
 Cyrus avoids introducing new or unfamiliar constructs. Every feature is grounded in concepts that are already widely understood in systems programming.
 
-<br />
+
 
 ## Controlled Cognitive Load
 
@@ -54,7 +50,7 @@ It does not attempt to compress logic into clever constructs or dense expression
 
 Cyrus is procedural at its core. It embraces composition over inheritance and provides a clear, direct way to structure programs without layering unnecessary complexity.
 
-<br />
+
 
 ## Type System
 
@@ -73,7 +69,7 @@ Generics are fully supported and designed to remain transparent:
 
 The type system is designed to assist—not obstruct—the developer.
 
-<br />
+
 
 ## Memory Management
 
@@ -92,7 +88,7 @@ The goal is clear:
 
 Memory behavior is explicit, predictable, and visible in the code.
 
-<br />
+
 
 ## Low-Level Control
 
@@ -112,7 +108,7 @@ What you write closely reflects what executes, without hidden high-level transfo
 
 Raw pointer operations provide full flexibility, but they come with responsibility. Invalid access, incorrect arithmetic, or misuse of pointers may lead to undefined behavior.
 
-<br />
+
 
 ## Module System
 
@@ -124,7 +120,7 @@ Cyrus provides a clean and expressive module system without unnecessary tooling 
 
 The structure of a project should be obvious from the code itself.
 
-<br />
+
 
 ## Performance by Design
 
@@ -136,7 +132,7 @@ Cyrus is built on top of LLVM, leveraging a mature and high-performance backend.
 
 Performance is not an afterthought—it is a foundational requirement.
 
-<br />
+
 
 ## Design Tradeoffs and Guarantees
 
@@ -144,7 +140,7 @@ Cyrus is intentionally opinionated about what it provides—and what it does not
 
 Every design decision in Cyrus is a tradeoff. The language prioritizes simplicity, predictability, and developer control over heavy safety systems and implicit behavior.
 
-<br />
+
 
 ### Safety Model
 
@@ -166,7 +162,7 @@ Beyond these checks, the language does not attempt to enforce safety through com
 
 Instead, Cyrus focuses on **reducing obvious and avoidable mistakes**, while leaving full control—and responsibility—in the hands of the developer.
 
-<br />
+
 
 #### What Cyrus Prevents
 
@@ -175,7 +171,7 @@ Instead, Cyrus focuses on **reducing obvious and avoidable mistakes**, while lea
 - Silent integer truncation or signedness issues
 - Hidden control flow or implicit behavior
 
-<br />
+
 
 #### What Cyrus Does Not Prevent
 
@@ -191,7 +187,7 @@ These are considered **the cost of control**, not failures of the language.
 
 To assist debugging, Cyrus supports runtime sanitizers that help detect these issues during development.
 
-<br />
+
 
 ### Trust-Based Design
 
@@ -199,11 +195,11 @@ Cyrus is built on a trust-based model.
 
 The language provides tools and guarantees where they meaningfully reduce common mistakes, but it does not attempt to enforce correctness through heavy restrictions or complex safety systems.
 
-<br />
+
 
 Instead, Cyrus assumes that the developer understands the system they are working with and is responsible for writing correct code.
 
-<br />
+
 
 This philosophy is reflected throughout the language:
 
@@ -214,7 +210,7 @@ This philosophy is reflected throughout the language:
 
 Cyrus does not attempt to prevent every possible error. Doing so would require introducing layers of abstraction and rules that increase cognitive load and obscure program behavior.
 
-<br />
+
 
 Instead, the language focuses on:
 
@@ -222,11 +218,11 @@ Instead, the language focuses on:
 - Preventing obvious and common mistakes
 - Avoiding misleading or ambiguous constructs
 
-<br />
+
 
 Beyond that, responsibility remains with the developer.
 
-<br />
+
 
 This model leads to a clear tradeoff:
 
@@ -235,7 +231,7 @@ This model leads to a clear tradeoff:
 
 Cyrus trusts you to use that control wisely.
 
-<br />
+
 
 ## Memory Management
 
@@ -246,7 +242,7 @@ Cyrus provides explicit and deterministic control over memory.
 - First-class support for custom allocators
 - `defer` for structured and predictable cleanup
 
-<br />
+
 
 Unlike ownership-heavy systems, Cyrus avoids introducing complex rules that must be constantly tracked by the developer. Memory management remains direct, visible, and under user control.
 
@@ -256,7 +252,7 @@ The core principle is simple:
 
 Memory behavior is explicit and observable in the code. However, incorrect usage—such as invalid memory access or double free—can still result in undefined behavior.
 
-<br />
+
 
 #### Key Characteristics
 
@@ -272,7 +268,7 @@ Examples of allocators include:
 
 Allocators are not required to be explicitly passed in every case, but all memory operations conceptually occur through an allocator.
 
-<br />
+
 
 #### Undefined Behavior
 
@@ -284,13 +280,13 @@ Invalid memory operations result in undefined behavior, including:
 
 Cyrus does not attempt to guard against these at compile time.
 
-<br />
+
 
 ### Type System Boundaries
 
 Cyrus uses a statically typed system with strict and predictable rules.
 
-<br />
+
 
 #### Type Inference
 
@@ -311,7 +307,7 @@ const object; // type cannot be inferred later
 Type inference does not defer or propagate across unknown declarations.  
 All types must be known at the point of declaration.
 
-<br />
+
 
 #### Integer Semantics
 
@@ -326,7 +322,7 @@ Cyrus enforces strict integer correctness:
 
 This eliminates a large class of silent numeric bugs common in C.
 
-<br />
+
 
 ### Generics and Polymorphism
 
@@ -336,13 +332,13 @@ Cyrus supports generics and polymorphism with a model that remains predictable w
 - Constraint-based generics via `interface`
 - Both static and dynamic dispatch are supported, with well-defined rules
 
-<br />
+
 
 #### Dispatch Semantics
 
 Cyrus determines dispatch strategy based on how `interface` is used and what the compiler can prove at compile time.
 
-<br />
+
 
 **1. Interface as Constraint (Generics)**
 
@@ -354,7 +350,7 @@ When an `interface` is used as a constraint on a function or method:
 
 This is the preferred model for performance-critical code.
 
-<br />
+
 
 **2. Interface as a Standalone Type**
 
@@ -367,12 +363,11 @@ const obj: MyInterface = ...;
 Dispatch behavior depends on compile-time knowledge:
 
 - If the concrete type is known within the same lexical scope and at the call site, the compiler will strongly attempt to resolve the call using **static dispatch**, eliminating any runtime overhead.
-
 - If the concrete type cannot be determined at compile time, the compiler falls back to **dynamic dispatch**, invoking the method through a vtable (`vtable_ptr`).
 
 This allows Cyrus to balance flexibility and performance without requiring explicit annotations in most cases.
 
-<br />
+
 
 #### Design Intent
 
@@ -392,7 +387,7 @@ This design keeps polymorphism:
 
 There is no attempt to unify multiple paradigms. Generics and polymorphism remain explicit, mechanical, and close to how the compiler operates.
 
-<br />
+
 
 ### Data Model
 
@@ -421,7 +416,7 @@ Instead, it promotes:
 
 > Composition over inheritance.
 
-<br />
+
 
 ### Methods and Encapsulation
 
@@ -436,7 +431,7 @@ This ensures:
 - No hidden extensions or scattered implementations
 - Improved readability and maintainability
 
-<br />
+
 
 ### Module System Semantics
 
@@ -457,7 +452,7 @@ The system is designed to remain:
 - Lightweight
 - Free from build-system complexity
 
-<br />
+
 
 ### No Hidden Language Features
 
@@ -470,7 +465,7 @@ Cyrus strictly avoids implicit or hidden behavior:
 
 What you write is what executes.
 
-<br />
+
 
 ### What Cyrus Refuses to Do
 
@@ -485,7 +480,7 @@ Cyrus explicitly avoids several common language features—not due to limitation
 
 These exclusions reduce complexity and keep the language focused.
 
-<br />
+
 
 ### Tradeoff Summary
 
@@ -506,7 +501,7 @@ You give up:
 - Advanced abstraction systems
 - Built-in concurrency primitives
 
-<br />
+
 
 ### Design Constraint: No New Concepts
 
@@ -520,7 +515,7 @@ Every feature is derived from existing, well-understood systems programming idea
 - Code remains readable across teams
 - Developers spend time solving problems, not learning the language
 
-<br />
+
 
 ### Final Perspective
 
@@ -536,7 +531,7 @@ It is trying to be:
 
 A language where the developer remains in charge—without unnecessary friction.
 
-<br />
+
 
 ## Abstractions, Carefully Applied
 
@@ -549,7 +544,7 @@ Cyrus believes in minimal and controlled abstraction.
 
 Abstractions exist only where they improve clarity—not where they obscure behavior.
 
-<br />
+
 
 ## Preventing Common Mistakes
 
@@ -567,7 +562,7 @@ Cyrus avoids this class of mistake through stricter and more intentional syntax 
 
 The goal is not to restrict the developer—but to eliminate avoidable errors.
 
-<br />
+
 
 ## A Language That Stays Out of Your Way
 
@@ -581,7 +576,7 @@ It does not attempt to abstract away the system, nor does it overwhelm you with 
 
 You work with the machine—without fighting the language.
 
-<br />
+
 
 ## Who Cyrus Is For
 
@@ -593,7 +588,7 @@ Cyrus is designed for developers who value control, clarity, and performance:
 - Network and backend engineers building high-performance systems
 - Embedded and low-level developers
 
-<br />
+
 
 ## Who Cyrus Is Not For
 
@@ -605,7 +600,7 @@ Cyrus is not designed for:
 
 Cyrus assumes that the developer is willing to understand the system they are working with.
 
-<br />
+
 
 ## Current Status
 
@@ -615,7 +610,7 @@ Its design is being refined with a strong emphasis on consistency, simplicity, a
 
 For ongoing progress and planned features, refer to the public [public roadmap](https://github.com/orgs/cyrus-lang/projects/1).
 
-<br />
+
 
 ## Final Note
 

@@ -29,7 +29,7 @@ if (score >= 90) {
 }
 ```
 
-<br />
+
 
 ## Looping Constructs
 
@@ -45,7 +45,7 @@ for (initializer; condition; increment) {
 }
 ```
 
-<br />
+
 
 ### Classic Counter Loop
 
@@ -57,7 +57,7 @@ for (var i = 0; i < 10; i++) {
 
 Runs with i taking values from `0` to `9`.
 
-<br />
+
 
 ### Manual Increment Loop
 
@@ -71,7 +71,7 @@ for (var i = 0; i < 10;) {
 
 Here, the increment part is omitted. The loop continues until the condition becomes false, but you control when i is updated.
 
-<br />
+
 
 ### Conditionless Loop with Initializer
 
@@ -88,7 +88,7 @@ for (var attempts = 0;) {
 
 With no condition provided, the loop is infinite unless exited using break or return.
 
-<br />
+
 
 ### Pure Infinite Loop
 
@@ -111,7 +111,7 @@ for {
 
 This form has no initializer, no condition, and no update. It must be terminated explicitly.
 
-<br />
+
 
 ### While Statement
 
@@ -136,7 +136,7 @@ while (true) {
 }
 ```
 
-<br />
+
 
 ## Switch Statement
 
@@ -149,7 +149,7 @@ The switch statement provides structured control flow based on the value of an e
 
 The general form is:
 
-<br />
+
 
 ### Basic Form
 
@@ -167,7 +167,7 @@ switch (expression) {
 Each case is introduced using `=>` and executes its associated block when the pattern matches.  
 Execution does not **fall through**; exactly one matching branch is executed.
 
-<br />
+
 
 ### Switching on Enums
 
@@ -200,7 +200,7 @@ pub fn main() {
 
 The switch is exhaustive: all possible variants of Color are handled.
 
-<br />
+
 
 ### Switch Enum Without Payloads
 
@@ -230,7 +230,7 @@ pub fn main() {
 
 Each case matches a concrete enum variant. Since all variants are covered, no default branch is required.
 
-<br />
+
 
 ### Destructuring Tagged Values
 
@@ -258,7 +258,7 @@ pub fn main() {
 
 Here, the bound variable (number, text) is available only within its corresponding case block.
 
-<br />
+
 
 ### Matching Multiple Enum Variants
 
@@ -291,7 +291,7 @@ Only variants without payloads may be grouped via |.
 Variants with payloads must be matched individually so their fields can be destructured.
 Grouped cases behave as a single branch; no pattern binding is allowed.
 
-<br />
+
 
 ### Switching On Non-enum Values
 
@@ -316,7 +316,7 @@ In this form:
 - Default is executed when no case matches
 - Matching is value-based, not pattern-based
 
-<br />
+
 
 # Jump Blocks
 

@@ -7,7 +7,7 @@ weight: 6
 
 Structs in Cyrus are user-defined composite types that group related data together. They are similar to struct in C/C++ but follow Cyrus's type system rules.
 
-<br />
+
 
 ## Defining a Struct
 
@@ -24,7 +24,7 @@ struct User {
 Fields marked with pub can be accessed from outside the struct.
 Fields without pub are private and can only be accessed inside the struct or its methods.
 
-<br />
+
 
 ## Initializing a Struct
 
@@ -38,7 +38,7 @@ var user = User {
 };
 ```
 
-<br />
+
 
 ## Accessing Struct Fields
 
@@ -50,7 +50,7 @@ printf("%s is %d years old.\n", user.name, user.age);
 
 `user.king` is not accessible outside the struct because it is private.
 
-<br />
+
 
 ## Methods
 
@@ -81,7 +81,7 @@ pub fn main() {
 }
 ```
 
-<br />
+
 
 ## Static Methods
 
@@ -99,7 +99,7 @@ pub fn main() {
 }
 ```
 
-<br />
+
 
 ## Instance Methods
 
@@ -111,7 +111,7 @@ pub fn describe(&self) {
 }
 ```
 
-<br />
+
 
 ## Reference vs Copy
 
@@ -133,7 +133,7 @@ pub fn take_copy(self) {
 Attempting to get a reference (&self) from a const-lvalue is not allowed.  
 The compiler will issue an error to prevent modifying or referencing immutable data.
 
-<br />
+
 
 ## Pointers and Fat Arrows
 
@@ -149,7 +149,7 @@ ptr->age;
 
 Using `ptr->name` or `ptr->age` is equivalent to `{"(*ptr).name"}` and `{"(*ptr).age"}`.
 
-<br />
+
 
 ## Unnamed Structs
 
@@ -169,7 +169,7 @@ fn main() {
 - Unnamed structs cannot define methods.
 - All fields in an unnamed struct are public by default and their visibility cannot be changed.
 
-<br />
+
 
 ## Global Unnamed Structs
 
@@ -187,7 +187,7 @@ pub fn main() {
 }
 ```
 
-<br />
+
 
 ## Named & Unnamed Structs Compatibility
 
@@ -225,7 +225,7 @@ pub fn main() {
 }
 ```
 
-<br />
+
 
 ## Method Parameter Constness
 

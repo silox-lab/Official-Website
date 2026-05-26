@@ -7,7 +7,7 @@ weight: 5
 
 Functions in Cyrus are defined using the fn keyword, followed by the function name, parameter list, and return type. Functions are private by default and may be annotated with access specifiers to control visibility, linkage, and optimization behavior.
 
-<br />
+
 
 ## Basic Function Definition
 
@@ -23,7 +23,7 @@ fn sum(x: int, y: int) int {
 - Return type appears after the parameter list.
 - Return is required for non-void functions.
 
-<br />
+
 
 ## Recursion
 
@@ -47,7 +47,7 @@ pub fn main() {
 
 Recursion follows normal call semantics and stack behavior.
 
-<br />
+
 
 # Function Modifiers
 
@@ -63,7 +63,7 @@ Function modifiers control how a function is:
 
 Cyrus classifies function modifiers into distinct semantic groups. This separation is intentional: it keeps the language orthogonal and prevents ambiguous combinations.
 
-<br />
+
 
 ### Visibility
 
@@ -75,7 +75,7 @@ pub fn compute() int { ... }
 
 If no visibility modifier is specified, the function is private to its module.
 
-<br />
+
 
 ### Linkage
 
@@ -93,7 +93,7 @@ Additional linkage forms exist for advanced use cases:
 
 Only one linkage modifier may be specified per function.
 
-<br />
+
 
 ### Inlining
 
@@ -111,7 +111,7 @@ Supported inlining modifiers:
 
 Inlining modifiers affect optimization but do not change semantics.
 
-<br />
+
 
 ### Prologue Control
 
@@ -139,7 +139,7 @@ Supported export kinds:
 
 These modifiers are platform-specific and primarily used when producing shared libraries.
 
-<br />
+
 
 ### Calling Convention
 
@@ -167,7 +167,7 @@ Supported calling conventions include:
 
 Only one calling convention may be specified per function.
 
-<br />
+
 
 ### Optional Function Flags
 
@@ -190,7 +190,7 @@ Supported optional flags include:
 
 The compiler validates combinations to prevent contradictory flags.
 
-<br />
+
 
 ### Section Placement
 
@@ -203,13 +203,13 @@ section(".init") fn early_init() void { ... }
 Multiple placement attributes may be specified when supported by the target.  
 This is typically used for kernel code, embedded systems, or fine-grained linker control.
 
-<br />
+
 
 ## Variadic Arguments
 
 Cyrus supports two kinds of variadic arguments, allowing functions to accept a variable number of parameters.
 
-<br />
+
 
 ### C-style Variadic Arguments
 
@@ -227,7 +227,7 @@ fn main() {
 
 To access and iterate over the variable arguments from within your function, see the Builtins section in the documentation for details on `@va_list`, `@va_start`, `@va_arg`, and `@va_end`.
 
-<br />
+
 
 ## Function Name
 
@@ -245,7 +245,7 @@ fn main() {
 - Inside Cyrus, however, the function is referred to as **`my_printf`**.
 - This allows you to avoid naming conflicts or to wrap existing library functions under more descriptive names.
 
-<br />
+
 
 # Lambdas
 
@@ -253,7 +253,7 @@ Lambdas in Cyrus are anonymous functions. They look and behave like normal funct
 
 Unlike closures in some other languages, Cyrus lambdas do not capture the surrounding environment. They are pure function objects defined with a clear, fixed signature.
 
-<br />
+
 
 ### Function Types
 
@@ -265,7 +265,7 @@ Example:
 type HandlerFn = fn(int, int) void;
 ```
 
-<br />
+
 
 ### Defining a Lambda
 
@@ -321,7 +321,7 @@ pub fn main() {
 }
 ```
 
-<br />
+
 
 ### Assigning to Variables
 
@@ -337,7 +337,7 @@ pub fn main() {
 }
 ```
 
-<br />
+
 
 ### No Environment Capture
 

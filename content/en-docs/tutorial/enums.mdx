@@ -14,7 +14,7 @@ Cyrus supports:
 - **Struct variants** (named-field payload)
 - **Valued variants** (scalar/constant-like)
 
-<br />
+
 
 ## Basic Enum Declaration
 
@@ -38,7 +38,7 @@ var c2 = Color.Custom(1, 2, 3);
 var c3: Color = .Green;
 ```
 
-<br />
+
 
 ## Variant Kinds
 
@@ -66,7 +66,7 @@ fn is_online(state: ConnectionState) bool {
 }
 ```
 
-<br />
+
 
 ### Tuple Variants
 
@@ -111,7 +111,7 @@ pub fn main() {
 }
 ```
 
-<br />
+
 
 ### Struct Variants
 
@@ -145,7 +145,7 @@ pub fn main() {
 - `Custom { ... }` is a **struct variant** with named payload fields.
 - `NotFound` here uses a **valued struct** payload (see below).
 
-<br />
+
 
 ### Valued Variants (Scalar / Constant-like)
 
@@ -189,7 +189,7 @@ The compiler infers that all `ScalarEnum` variants are integer-valued and lowers
 
 Valued variants are also allowed to carry richer payloads (e.g., `NotFound = struct { ... }` in the previous example).
 
-<br />
+
 
 ## Tag Type and Scalar Enums
 
@@ -211,7 +211,7 @@ const a: enum(bool) { A = true, B = false } = .A;
 
 The tag type controls the ABI-level representation of the variant tag, which can be useful for FFI and low-level layout constraints.
 
-<br />
+
 
 ## Named vs Unnamed Enums
 
@@ -238,7 +238,7 @@ pub fn main() {
 
 Note: Generics (`<T>`) are introduced in detail in a later section.
 
-<br />
+
 
 ### Unnamed Enums
 
@@ -255,7 +255,7 @@ switch (mode) {
 
 This is useful for one-off tagged values where defining a top-level name would be overkill.
 
-<br />
+
 
 ## Heterogeneous Variants
 
@@ -291,7 +291,7 @@ pub fn main() {
 - Unified Matching: The switch statement handles these heterogeneous payloads seamlessly, providing the appropriate bindings based on the variant's specific definition.
 - Type Safety: The compiler ensures that you only attempt to access payloads that exist for the specific variant you are matching.
 
-<br />
+
 
 ## Matching on Enums
 

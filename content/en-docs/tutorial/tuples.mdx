@@ -8,7 +8,7 @@ weight: 9
 A **tuple** is an ordered, fixed-size collection of values of possibly different types.  
 They are lightweight and useful for grouping, returning, or destructuring multiple values without defining a struct.
 
-<br />
+
 
 Tuples are written using parentheses, with elements separated by commas:
 
@@ -23,7 +23,7 @@ printf("%d\n", t.0); // prints 10
 printf("%d\n", t.1); // prints 20
 ```
 
-<br />
+
 
 ## Returning Tuples from Functions
 
@@ -40,7 +40,7 @@ pub fn main() {
 }
 ```
 
-<br />
+
 
 ## Tuple Destructuring
 
@@ -54,7 +54,7 @@ pub fn main() {
 }
 ```
 
-<br />
+
 
 ## Nested Tuples
 
@@ -70,7 +70,7 @@ pub fn main() {
 
 This form can be arbitrarily nested and follows the same destructuring logic for all levels.
 
-<br />
+
 
 ## Explicit Tuple Types
 
@@ -86,7 +86,7 @@ printf("%s\n", c); // Cyrus
 
 Type annotations ensure the tuple on the right-hand side matches the declared structure.
 
-<br />
+
 
 ## Mutability
 
@@ -114,7 +114,7 @@ const (a, var b, c) = (1, 2, 3);
 // b is var (mutable)
 ```
 
-<br />
+
 
 ## Type Annotation
 
@@ -129,7 +129,7 @@ const (var a: int32, (var b: int32, c: int32)) = (1, (2, 3));
 // c is an immutable int32 (inherits const from the root)
 ```
 
-<br />
+
 
 ## Restrictions
 
