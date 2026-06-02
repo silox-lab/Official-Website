@@ -1,0 +1,74 @@
+---
+title: Introduction
+weight: 1
+---
+
+<UnderDevelopmentAlert title="Under Development" />
+
+# Documentation
+
+Welcome to the official documentation for Cyrus. Here you'll find everything you need to get started with our modern, expressive, and efficient programming language.
+
+Cyrus is designed for developers who want the power of low-level control without sacrificing clarity. Its syntax is concise and approachable, while its compiler ensures performance and safety through modern optimizations. Whether you’re building high-performance systems, experimenting with algorithms, or exploring creative projects, Cyrus gives you the tools to express ideas cleanly and run them efficiently.
+
+### Why Cyrus?
+
+- Simplicity - A small but powerful core, with a standard library that grows with your needs, not against them.
+- Performance - The compiler generates optimized native code, making Cyrus suitable for demanding workloads.
+- Expressiveness - Code should feel natural to read and write, without unnecessary ceremony.
+
+## A Quick Taste
+
+Here's a glimpse of what Cyrus code looks like:
+
+```cyrus
+import std::libc{printf};
+
+pub fn main() {
+  const name: char* = "Cyrus";
+
+  printf("Hello, %s!\n", msg);
+}
+```
+
+<div className="flex flex-col md:flex-row gap-4">
+  <Card className="shadow-lg h-full">
+    <CardHeader>
+      <CardTitle className="flex items-center gap-2 text-xl md:text-2xl">
+        For Newcomers
+      </CardTitle>
+    </CardHeader>
+    <CardContent>
+      <div className="space-y-4">
+        <div className="text-base md:text-lg text-gray-600 dark:text-muted-foreground">
+          If you're new to Cyrus, start with our comprehensive tutorial to learn
+          the basics and progress quickly.
+        </div>
+        <Link href="/docs/tutorial/basic-syntax" className="mt-2 block">
+          <Button className="w-full md:w-auto">Get Started</Button>
+        </Link>
+      </div>
+    </CardContent>
+  </Card>
+
+  <Card className="shadow-lg h-full">
+    <CardHeader>
+      <CardTitle className="flex items-center gap-2 text-xl md:text-2xl">
+        Language Reference
+      </CardTitle>
+    </CardHeader>
+    <CardContent>
+      <div className="space-y-4">
+        <div className="text-base md:text-lg text-gray-600 dark:text-muted-foreground">
+          Explore our language reference for detailed information about built-in
+          types, functions, and modules in Cyrus.
+        </div>
+        <Link href="/docs/langref" className="mt-2 block">
+          <Button variant="outline" className="w-full md:w-auto">
+            Explore Reference
+          </Button>
+        </Link>
+      </div>
+    </CardContent>
+  </Card>
+</div>
